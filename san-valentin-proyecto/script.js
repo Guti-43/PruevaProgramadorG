@@ -7,6 +7,12 @@ function moverAleatoriamente(btn) {
     btn.style.left = Math.floor(Math.random() * 90 + 5) + "%"
 }
 
-btnNo.addEventListener("mouseenter", function (e) {
-    moverAleatoriamente(e.target)
-})
+if (btnNo) {
+    const moverBoton = (e) => {
+        e.preventDefault();
+        moverAleatoriamente(btnNo);
+    };
+
+    btnNo.addEventListener("mouseenter", moverBoton);
+    btnNo.addEventListener("pointerdown", moverBoton);
+}
